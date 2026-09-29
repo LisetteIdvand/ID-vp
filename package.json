@@ -1,0 +1,29 @@
+{
+  "name": "id-vp",
+  "version": "1.0.0",
+  "description": "Õppetöö raames tehtud veeb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://LisetteIdvand@github.com/LisetteIdvand/ID-vp.git"
+  },
+  "keywords": [
+    "TLÜ",
+    "DTI",
+    "veeb",
+    "õppetöö"
+  ],
+  "author": "Lisette Idvand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LisetteIdvand/ID-vp/issues"
+  },
+  "homepage": "https://github.com/LisetteIdvand/ID-vp#readme",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
