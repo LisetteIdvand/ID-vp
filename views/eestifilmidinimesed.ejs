@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+	<meta charset="utf-8">
+	<title>Lisette Idvand, veebiprogrammeerimine</title>
+</head>
+<body>
+	<img src="../Pic/veebiprogrammeerimine_2026_ID.png" alt="kursuse bänner">
+	<h1>Eesti filmiga seotud inimesed</h1>
+	<ul>
+		<li><a href="/">Avaleht</a></li>
+		<li><a href="/eestifilmid">Tagasi Eesti filmi avalehele</a></li>
+	<ul>
+	<hr>
+	<ol>
+		<% personList.forEach(function(person){ %>
+		<li><%= person.first_name %> <%= person.last_name%>, sündinud <%= person.born %></li>
+		<% }); %>
+	</ol>
+	
+</body>
+</html>
