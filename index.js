@@ -28,6 +28,16 @@ app.use(bodyparser.urlencoded({extended: true}));
 	const timeNow = dateET.time();
 	res.render('index', {dayNow: dayNow, dateNow: dateNow, timeNow: timeNow});
 }); */
+
+//sisse loginud kasutajate avaleht
+app.get('/home', (req, res) => {
+	res.render('home');
+});
+
+//väljalogimine
+app.get('/logout', (req, res) => {
+	res.redirect('/');
+});
 	
 app.get('/vanasonad', async (req, res)=>{
 	try {
@@ -93,8 +103,15 @@ const relationRouter = require('./routes/relationRoutes');
 app.use('/eestifilm', relationRouter);
 
 //galleriipiltide üleslaadimine
-
 const galleryPhotosUploadRouter = require('./routes/galleryPhotoUploadRoutes');
 app.use('/', galleryPhotosUploadRouter);
+
+//kasutajakonto loomine
+const signupRouter = require('./routes/signupRoutes');
+app.use('/signup', signupRouter);
+
+//sisse logimine
+const signinRouter = require('./routes/signinRoutes');
+app.use('/signin', signinRouter);
 
 app.listen(5210);

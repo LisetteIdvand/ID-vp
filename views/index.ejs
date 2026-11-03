@@ -12,13 +12,14 @@
 	<hr>
 	<p>Täna on <%=dateNow %>. Server avati kell <%= timeNow %>.</p>
 	<ul>
+		<li><a href="/signup">Kasutajakonto loomine</a></li>
+		<li><a href="/signin">Logi sisse</a></li>
+		<br>
 		<li><a href="http://greeny.cs.tlu.ee:5210/vanasonad">Hea päeva alguseks loosi endale üks Eesti vanasõna</a></li>
 		<li><a href="http://greeny.cs.tlu.ee:5210/opingud">Miks tulin Tallinna Ülikooli?</a></li>
 		<li><a href="/regvisit">Registreeri oma külastus</a>
 		<li><a href="/viimane">Mine vaata, kes oli viimane külastaja</a></li>
 		<li><a href="/eestifilm">Eesti film</a></li>
-		<li><a href="/upload">Fotode üleslaadimine pildigaleriisse</a></li>
-		<li><a href="/gallery">Pildigalerii</a></li>
 		<section>
         <h2>Uusim avalik foto</h2>
         <% if (latestPhoto && latestPhoto.filename) { %>
