@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <title>Seose lisamine</title>
+</head>
+<body>
+    <img src="../Pic/veebiprogrammeerimine_2026_ID.png" alt="Kursuse bänner">
+
+    <h1>Lisa seoseid</h1>
+
+    <ul>
+        <li><a href="/">Avaleht</a></li>
+		<li><a href="/eestifilm">Tagasi Eesti filmi avalehele</a></li>
+        <li><a href="/relationHome">Vaata seoseid</a></li>
+    </ul>
+
+    <hr>
+
+    <% if (notice) { %>
+        <p><strong><%= notice %></strong></p>
+    <% } %>
+
+    <form method="post" action="/relation_lisa">
+        <label for="person_id">Isik:</label>
+        <select id="person_id" name="person_id" required>
+            <option value="" selected disabled>Vali isik</option>
+            <% people.forEach(p => { %>
+                <option value="<%= p.id %>">
+                    <%= p.first_name %> <%= p.last_name %>
+                </option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <label for="movie_id">Film:</label>
+        <select id="movie_id" name="movie_id" required>
+            <option value="" selected disabled>Vali film</option>
+            <% movies.forEach(m => { %>
+                <option value="<%= m.id %>">
+                    <%= m.movie_title %>
+                </option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <label for="profession_id">Amet:</label>
+        <select id="profession_id" name="profession_id" required>
+            <option value="" selected disabled>Vali amet</option>
+            <% professions.forEach(a => { %>
+                <option value="<%= a.id %>" data-title="<%= a.title %>">
+                    <%= a.title %>
+                </option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <div id="character-field">
+            <label for="character_name">Tegelaskuju nimi:</label>
+            <input type="text" id="character_name" name="character_name">
+        </div>
+
+        <br>
+
+        <button type="submit">Salvesta seos</button>
+    </form>
+
+    <script>
+        const professionSelect = document.getElementById('profession_id');
+        const characterField = document.getElementById('character-field');
+        const characterInput = document.getElementById('character_name');
+
+        function updateCharacterField() {
+            const option = professionSelect.options[professionSelect.selectedIndex];
+            const profession = option?.dataset.title || '';
+            const isActor = profession.trim().toLowerCase() === 'näitleja';
+
+            characterField.hidden = !isActor;
+            characterInput.required = isActor;
+
+            if (!isActor) {
+                characterInput.value = '';
+            }
+        }
+
+        professionSelect.addEventListener('change', updateCharacterField);
+        updateCharacterField();
+    </script>
+</body>

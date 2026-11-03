@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <title>Külastuse registreerimine</title>
+</head>
+<body>
+    <img src="Pic/veebiprogrammeerimine_2026_ID.png" alt="kursuse bänner">
+    <h1>Registreeri oma külastus</h1>
+
+    <form method="POST" action="/regvisit/visits_add">
+        <label for="inputName">Palun sisesta oma nimi:</label>
+        <input id="inputName" name="nameInput" type="text" placeholder="Sinu nimi..." required>
+        <br>
+        <input id="regSubmit" type="submit" value="Salvesta">
+    </form>
+
+    <% if (notice) { %>
+        <p><%= notice %></p>
+    <% } %>
+
+    <p><a href="/regvisit">Tagasi külastuste avalehele</a></p>
+    <p><a href="/">Avaleht</a></p>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Pildigalerii</title>
+</head>
+<body>
+    <h1>Avalik pildigalerii</h1>
+    
+    <p><a href="/">Tagasi avalehele</a></p>
+
+    <div class="gallery-container">
+        <% if (photos && photos.length > 0) { %>
+            <% photos.forEach(photo => { %>
+                <div class="photo-card" style="margin-bottom: 20px;">
+                    <img src="/gallery/thumbs/<%= photo.filename %>" alt="<%= photo.alttext %>" style="max-width: 200px; height: auto;">
+                    <p><em><%= photo.alttext %></em></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Galeriis ei ole veel ühtegi avalikku pilti.</p>
+        <% } %>
+    </div>
+</body>
+</html>

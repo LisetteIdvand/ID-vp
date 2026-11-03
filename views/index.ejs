@@ -10,13 +10,25 @@
 	<p>See leht on loodud veebiprogrammeerimise kursusel <a href="https://www.tlu.ee">Tallinna Ülikoolis</a> ning ei sisalda tõsiseltvõetavat sisu!</p>
 	<p>Esialgu tutvusime lihtsalt HTML keelega, nüüd juba programmeerime.</p>
 	<hr>
-	<p>Täna on <%= dayNow %>. Server avati kell <%= timeNow %>.</p>
+	<p>Täna on <%=dateNow %>. Server avati kell <%= timeNow %>.</p>
 	<ul>
 		<li><a href="http://greeny.cs.tlu.ee:5210/vanasonad">Hea päeva alguseks loosi endale üks Eesti vanasõna</a></li>
 		<li><a href="http://greeny.cs.tlu.ee:5210/opingud">Miks tulin Tallinna Ülikooli?</a></li>
 		<li><a href="/regvisit">Registreeri oma külastus</a>
 		<li><a href="/viimane">Mine vaata, kes oli viimane külastaja</a></li>
 		<li><a href="/eestifilm">Eesti film</a></li>
-	</ul>
+		<li><a href="/upload">Fotode üleslaadimine pildigaleriisse</a></li>
+		<li><a href="/gallery">Pildigalerii</a></li>
+		<section>
+        <h2>Uusim avalik foto</h2>
+        <% if (latestPhoto && latestPhoto.filename) { %>
+            <div class="latest-photo-container">
+            <img src="/gallery/normal/<%= latestPhoto.filename %>" alt="<%= latestPhoto.alttext %>" style="max-width: 100%; height: auto;">
+                <p><em><%= latestPhoto.alttext %></em></p>
+            </div>
+        <% } else { %>
+            <p>Hetkel avalikke fotosid ei ole.</p>
+        <% } %>
+    </section>
 </body>
 </html>

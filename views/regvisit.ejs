@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-	<meta charset="utf-8">
-	<title>Lisette Idvand, veebiprogrammeerimine</title>
+    <meta charset="utf-8">
+    <title>Lisette Idvand, veebiprogrammeerimine</title>
 </head>
 <body>
-	<img src="Pic/veebiprogrammeerimine_2026_ID.png" alt="kursuse bänner">
-	<h1>Registreeri oma külastus</h1>
-	<form method="POST">
-		<label for="inputName">Palun sisesta oma nimi:</label>
-		<input id="inputName" name="inputName" type="text" placeholder="Sinu nimi...">
-		<br>
-		<input id="regSubmit" type="submit" name="resSubmit" value="Salvesta">
-	</form>
-	<p><a href="/">Avaleht</a></p>
+    <img src="Pic/veebiprogrammeerimine_2026_ID.png" alt="kursuse bänner">
+    <h1>Külastused</h1>
 
-<hr></body>
+    <% if (lastVisit) { %>
+        <p>Viimane külastus: <strong><%= lastVisit.name %></strong>,
+        <%= lastVisit.date %> kell <%= lastVisit.time %></p>
+    <% } else { %>
+        <p>Külastusi pole veel registreeritud.</p>
+    <% } %>
+
+    <p><a href="/regvisit/visits_add">Lisa külastus</a></p>
+    <p><a href="/">Avaleht</a></p>
+    <hr>
+</body>
 </html>

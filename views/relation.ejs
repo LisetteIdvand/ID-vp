@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+	<meta charset="utf-8">
+	<title>Lisette Idvand, veebiprogrammeerimine</title>
+</head>
+<body>
+	<img src="Pic/veebiprogrammeerimine_2026_ID.png" alt="kursuse bänner">
+	<h1>Filmide seosed</h1>
+	<ul>
+	<li><a href="/">Avaleht</a></li>
+	<li><a href="/eestifilm">Tagasi Eesti filmi avalehele</a></li>
+        <li><a href="/relation_lisa">Lisa uus seos</a></li>
+    </ul>
+
+    <hr>
+
+    <% if (relation && relation.length > 0) { %>
+        <table border="1" cellpadding="8" style="border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Film</th>
+                    <th>Isik</th>
+                    <th>Amet</th>
+                    <th>Tegelane</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% relation.forEach(r => { %>
+                    <tr>
+                        <td><%= r.movie_title %></td>
+                        <td><%= r.first_name %> <%= r.last_name %></td>
+                        <td><%= r.profession %></td>
+                        <td><%= r.character_name || '-' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>Seoseid ei ole veel lisatud.</p>
+    <% } %>
+</body>
+</html>
